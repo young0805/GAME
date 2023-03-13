@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 
@@ -76,21 +77,23 @@ public class Game extends Thread {
 	}
 	
 	public void pressS() {
-		noteRouteSImage = new ImageIcon(Main.class.getClassLoader().getResource("/images/noteRoutePressed.png")).getImage();
+		//System.out.println(Main.class.getResource("../images/noteRoutePressed.png"));
+		noteRouteSImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+
 		new Music("drumSmall1.mp3", false).start();
 	}
 	
 	public void releaseS() {
-		noteRouteSImage = new ImageIcon(Main.class.getClassLoader().getResource("/images/noteRoute.png")).getImage();
+		noteRouteSImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	}
 	
 	public void pressD() {
-		noteRouteDImage = new ImageIcon(Main.class.getResource("..//images/noteRoutePressed.png")).getImage();
+		noteRouteDImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumSmall1.mp3", false).start();
 	}
 	
 	public void releaseD() {
-		noteRouteDImage = new ImageIcon(Main.class.getResource("..//images/noteRoute.png")).getImage();
+		noteRouteDImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	}
 
 	public void pressF() {
