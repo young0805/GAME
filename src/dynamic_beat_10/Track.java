@@ -6,7 +6,8 @@ public class Track {
 	private String startImage; // 게임 선택 창 표지 이미지
 	private String gameImage; // 해당 곡을 실행했을 때 표지 이미지
 	private String startMusic; // 게임 선택 창 음악
-	private String gmaeMusic; // 해당 곡을 실행했을 때 음악
+	private String gameMusic; // 해당 곡을 실행했을 때 음악
+
 	public String getTitleImage() {
 		return titleImage;
 	}
@@ -31,21 +32,20 @@ public class Track {
 	public void setStartMusic(String startMusic) {
 		this.startMusic = startMusic;
 	}
-	public String getGmaeMusic() {
-		return gmaeMusic;
+	public String getGameMusic() {
+		return gameMusic;
 	}
-	public void setGmaeMusic(String gmaeMusic) {
-		this.gmaeMusic = gmaeMusic;
+	public void setGameMusic(String gameMusic) {
+		this.gameMusic = gameMusic;
 	}
-	public Track(String titleImage, String startImage, String gameImage, String startMusic, String gmaeMusic) {
+	
+	public Track(String titleImage, String startImage, String gameImage, String startMusic, String gameMusic) {
 		super();
 		this.titleImage = titleImage;
 		this.startImage = startImage;
 		this.gameImage = gameImage;
 		this.startMusic = startMusic;
-		this.gmaeMusic = gmaeMusic;
+		this.gameMusic = gameMusic;
 	}
-
-	
 	
 }
