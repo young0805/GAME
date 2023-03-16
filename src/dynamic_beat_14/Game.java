@@ -62,7 +62,13 @@ public class Game extends Thread {
 		for(int i = 0; i < noteList.size(); i++)
 		{
 			Note note = noteList.get(i);
-			note.screenDraw(g);
+			if(!note.isProceeded())
+			{ noteList.remove(i);
+			  i--;
+			}	
+			else{
+				note.screenDraw(g);
+			}
 		}
 		g.setColor(Color.white);
 		g.setRenderingHint( RenderingHints.KEY_TEXT_ANTIALIASING, 
@@ -86,6 +92,7 @@ public class Game extends Thread {
 	}
 	
 	public void pressS() {
+		judge("S");
 		noteRouteSImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumSmall1.mp3", false).start();
 	}
@@ -95,6 +102,7 @@ public class Game extends Thread {
 	}
 	
 	public void pressD() {
+		judge("D");
 		noteRouteDImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumSmall1.mp3", false).start();
 	}
@@ -104,6 +112,7 @@ public class Game extends Thread {
 	}
 
 	public void pressF() {
+		judge("F");
 		noteRouteFImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumSmall1.mp3", false).start();
 	}
@@ -113,6 +122,7 @@ public class Game extends Thread {
 	}
 
 	public void pressSpace() {
+		judge("Space");
 		noteRouteSpace1Image = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		noteRouteSpace2Image = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumBig1.mp3", false).start();
@@ -124,6 +134,7 @@ public class Game extends Thread {
 	}
 	
 	public void pressJ() {
+		judge("J");
 		noteRouteJImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumSmall1.mp3", false).start();
 	}
@@ -133,6 +144,7 @@ public class Game extends Thread {
 	}
 	
 	public void pressK() {
+		judge("K");
 		noteRouteKImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumSmall1.mp3", false).start();
 	}
@@ -142,6 +154,7 @@ public class Game extends Thread {
 	}
 	
 	public void pressL() {
+		judge("L");
 		noteRouteLImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		new Music("drumSmall1.mp3", false).start();
 	}
@@ -152,7 +165,7 @@ public class Game extends Thread {
 	
 	@Override
 	public void run() {
-		dropNotes();
+		dropNotes(this.titleName);
 	}
 	
 	public void close() {
@@ -160,37 +173,217 @@ public class Game extends Thread {
 		this.interrupt();
 	}
 	
-	public void dropNotes() {
+	public void dropNotes(String titleName) {
 		Beat[] beats = null;
-		if(titleName.equals("Joakim Karud - Mighty Love")) {
+		if(titleName.equals("Joakim Karud - Mighty Love") && difficulty.equals("Easy")) {
 			int startTime = 4460 - Main.REACH_TIME *1000;
 			int gap = 125;
 			beats = new Beat[]{
-					new Beat(startTime, "S"),
-					new Beat(startTime+ gap *2, "D"),
-					new Beat(startTime+ gap *4, "S"),
-					new Beat(startTime+ gap *6, "S"),
-					new Beat(startTime+ gap *8, "J"),
-					new Beat(startTime+ gap *10, "K"),
-					new Beat(startTime+ gap *12, "L"),
-					new Beat(startTime+ gap *14, "D"),
-					new Beat(startTime+ gap *18, "D"),
-					new Beat(startTime+ gap *20, "K")
-			};
+					new Beat(startTime+ gap *1, "S"),
+					new Beat(startTime+ gap *3, "D"),
+					new Beat(startTime+ gap *5, "S"),
+					new Beat(startTime+ gap *7, "J"),
+					new Beat(startTime+ gap *9, "K"),
+					new Beat(startTime+ gap *11, "L"),
+					new Beat(startTime+ gap *13, "S"),
+					new Beat(startTime+ gap *15, "D"),
+					new Beat(startTime+ gap *18, "L"),
+					new Beat(startTime+ gap *20, "J"),
+					new Beat(startTime+ gap *22, "K"),
+					new Beat(startTime+ gap *24, "L"),
+					new Beat(startTime+ gap *26, "S"),
+					new Beat(startTime+ gap *28, "D"),
+					new Beat(startTime+ gap *32, "Space"),
+					new Beat(startTime+ gap *34, "S"),
+					new Beat(startTime+ gap *36, "F"),
+					new Beat(startTime+ gap *38, "J"),
+					new Beat(startTime+ gap *40, "J"),
+					new Beat(startTime+ gap *42, "D"),
+					new Beat(startTime+ gap *44, "S"),
+					new Beat(startTime+ gap *46, "D"),
+					new Beat(startTime+ gap *48, "S"),
+					new Beat(startTime+ gap *50, "J"),
+					new Beat(startTime+ gap *52, "K"),
+					new Beat(startTime+ gap *54, "L"),
+					new Beat(startTime+ gap *56, "S"),
+					new Beat(startTime+ gap *58, "D"),
+					new Beat(startTime+ gap *60, "L"),
+					new Beat(startTime+ gap *62, "J"),
+					new Beat(startTime+ gap *64, "K"),
+					new Beat(startTime+ gap *66, "L"),
+					new Beat(startTime+ gap *68, "S"),
+					new Beat(startTime+ gap *70, "D"),
+					new Beat(startTime+ gap *72, "Space"),
+					new Beat(startTime+ gap *74, "S"),
+					new Beat(startTime+ gap *76, "F"),
+					new Beat(startTime+ gap *78, "J"),
+					new Beat(startTime+ gap *80, "J"),
+					new Beat(startTime+ gap *82, "D"),
+					new Beat(startTime+ gap *84, "L"),
+					new Beat(startTime+ gap *86, "S"),
+					new Beat(startTime+ gap *88, "D"),
+					new Beat(startTime+ gap *90, "L"),
+					new Beat(startTime+ gap *92, "J"),
+					new Beat(startTime+ gap *94, "K"),
+					new Beat(startTime+ gap *96, "L"),
+					new Beat(startTime+ gap *98, "S"),
+					new Beat(startTime+ gap *100, "D"),
+					new Beat(startTime+ gap *102, "Space"),
+					new Beat(startTime+ gap *104, "S"),
+					new Beat(startTime+ gap *106, "F"),
+					new Beat(startTime+ gap *108, "J"),
+					new Beat(startTime+ gap *110, "K"),
+					new Beat(startTime+ gap *111, "S"),
+					new Beat(startTime+ gap *113, "D"),
+					new Beat(startTime+ gap *115, "S"),
+					new Beat(startTime+ gap *117, "J"),
+					new Beat(startTime+ gap *119, "K"),
+					new Beat(startTime+ gap *121, "L"),
+					new Beat(startTime+ gap *123, "S"),
+					new Beat(startTime+ gap *125, "D"),
+					new Beat(startTime+ gap *128, "L"),
+					new Beat(startTime+ gap *130, "J"),
+					new Beat(startTime+ gap *132, "K"),
+					new Beat(startTime+ gap *134, "L"),
+					new Beat(startTime+ gap *136, "S"),
+					new Beat(startTime+ gap *138, "D"),
+					new Beat(startTime+ gap *142, "Space"),
+					new Beat(startTime+ gap *144, "S"),
+					new Beat(startTime+ gap *146, "F"),
+					new Beat(startTime+ gap *148, "J"),
+					new Beat(startTime+ gap *150, "J"),
+					new Beat(startTime+ gap *152, "D"),
+					new Beat(startTime+ gap *154, "S"),
+					new Beat(startTime+ gap *156, "D"),
+					new Beat(startTime+ gap *158, "S"),
+					new Beat(startTime+ gap *160, "J"),
+					new Beat(startTime+ gap *162, "K"),
+					new Beat(startTime+ gap *164, "L"),
+					new Beat(startTime+ gap *166, "S"),
+					new Beat(startTime+ gap *168, "D"),
+					new Beat(startTime+ gap *170, "L"),
+					new Beat(startTime+ gap *172, "J"),
+					new Beat(startTime+ gap *174, "K"),
+					new Beat(startTime+ gap *176, "L"),
+					new Beat(startTime+ gap *178, "S"),
+					new Beat(startTime+ gap *180, "D"),
+					new Beat(startTime+ gap *182, "Space"),
+					new Beat(startTime+ gap *184, "S"),
+					new Beat(startTime+ gap *186, "F"),
+					new Beat(startTime+ gap *188, "J"),
+					new Beat(startTime+ gap *190, "J"),
+					new Beat(startTime+ gap *192, "D"),
+					new Beat(startTime+ gap *194, "L"),
+					new Beat(startTime+ gap *196, "S"),
+					new Beat(startTime+ gap *198, "D"),
+					new Beat(startTime+ gap *200, "L"),
+					new Beat(startTime+ gap *202, "J"),
+					new Beat(startTime+ gap *204, "K"),
+					new Beat(startTime+ gap *206, "L"),
+					new Beat(startTime+ gap *208, "S"),
+					new Beat(startTime+ gap *210, "D"),
+					new Beat(startTime+ gap *212, "Space"),
+					new Beat(startTime+ gap *214, "S"),
+					new Beat(startTime+ gap *216, "F"),
+					new Beat(startTime+ gap *218, "J"),
+					new Beat(startTime+ gap *220, "K"),
+					new Beat(startTime+ gap *222, "Space"),
+					new Beat(startTime+ gap *224, "S"),
+					new Beat(startTime+ gap *226, "F"),
+					new Beat(startTime+ gap *228, "J"),
+					new Beat(startTime+ gap *230, "J"),
+					new Beat(startTime+ gap *232, "D"),
+					new Beat(startTime+ gap *234, "L"),
+					new Beat(startTime+ gap *236, "S"),
+					new Beat(startTime+ gap *238, "D"),
+					new Beat(startTime+ gap *240, "L"),
+					new Beat(startTime+ gap *242, "J"),
+					new Beat(startTime+ gap *244, "K"),
+					new Beat(startTime+ gap *246, "L"),
+					new Beat(startTime+ gap *248, "S"),
+					new Beat(startTime+ gap *250, "D"),
+					new Beat(startTime+ gap *252, "Space"),
+					new Beat(startTime+ gap *254, "S"),
+					new Beat(startTime+ gap *256, "F"),
+					new Beat(startTime+ gap *258, "J"),
+					new Beat(startTime+ gap *260, "K"),
+					new Beat(startTime+ gap *262, "S"),
+					new Beat(startTime+ gap *263, "D"),
+					new Beat(startTime+ gap *265, "S"),
+					new Beat(startTime+ gap *267, "Space"),
+					new Beat(startTime+ gap *269, "K"),
+					new Beat(startTime+ gap *271, "L"),
+					new Beat(startTime+ gap *273, "S"),
+					new Beat(startTime+ gap *275, "D"),
+					new Beat(startTime+ gap *278, "L"),
+					new Beat(startTime+ gap *280, "J"),
+					new Beat(startTime+ gap *282, "K"),
+					new Beat(startTime+ gap *284, "L"),
+					new Beat(startTime+ gap *286, "S"),
+					new Beat(startTime+ gap *288, "D"),
+					new Beat(startTime+ gap *282, "Space"),
+					new Beat(startTime+ gap *284, "S"),
+					new Beat(startTime+ gap *286, "F"),
+					new Beat(startTime+ gap *288, "J"),
+					new Beat(startTime+ gap *290, "J"),
+					new Beat(startTime+ gap *292, "D"),
+					new Beat(startTime+ gap *294, "S"),
+					new Beat(startTime+ gap *296, "D"),
+					new Beat(startTime+ gap *298, "S"),
+					new Beat(startTime+ gap *300, "J"),
+					new Beat(startTime+ gap *302, "Space"),
+					new Beat(startTime+ gap *304, "L"),
+					new Beat(startTime+ gap *306, "S"),
+					new Beat(startTime+ gap *308, "D"),
+					new Beat(startTime+ gap *310, "L"),
+					new Beat(startTime+ gap *312, "J"),
+					new Beat(startTime+ gap *314, "K"),
+					new Beat(startTime+ gap *316, "L"),
+					new Beat(startTime+ gap *318, "S"),
+					new Beat(startTime+ gap *320, "D"),
+					new Beat(startTime+ gap *322, "Space"),
+					new Beat(startTime+ gap *324, "S"),
+					new Beat(startTime+ gap *326, "F"),
+					new Beat(startTime+ gap *328, "J"),
+					new Beat(startTime+ gap *330, "J"),
+					new Beat(startTime+ gap *332, "D"),
+					new Beat(startTime+ gap *334, "L"),
+					new Beat(startTime+ gap *336, "Space"),
+					new Beat(startTime+ gap *338, "D"),
+					new Beat(startTime+ gap *340, "L"),
+					};
 	}
-		else if(titleName.equals("Joakim Karud - Wild Flower")) {
+		if(titleName.equals("Joakim Karud - Mighty Love") && difficulty.equals("Hard")) {
+			// 많게는 3000개
 			int startTime = 1000;
 			beats = new Beat[]{
 					new Beat(startTime, "Space"),
 			};
 		}
-		else if(titleName.equals("Bensound - Energy")) {
+		else if(titleName.equals("Joakim Karud - Wild Flower") && difficulty.equals("Easy")) {
 			int startTime = 1000;
 			beats = new Beat[]{
 					new Beat(startTime, "Space"),
 			};
 		}
-		
+		else if(titleName.equals("Joakim Karud - Wild Flower") && difficulty.equals("Hard")) {
+			int startTime = 1000;
+			beats = new Beat[]{
+					new Beat(startTime, "Space"),
+			};
+		}
+		else if(titleName.equals("Bensound - Energy") && difficulty.equals("Easy")) {
+			int startTime = 1000;
+			beats = new Beat[]{
+					new Beat(startTime, "Space"),
+			};
+		}
+		else if(titleName.equals("Bensound - Energy") && difficulty.equals("Hard")) {
+			int startTime = 1000;
+			beats = new Beat[]{
+					new Beat(startTime, "Space"),
+			};
+		}
 		int i =0;
 		gameMusic.start();
 		while(i< beats.length && !isInterrupted()){
@@ -212,6 +405,16 @@ public class Game extends Thread {
 		}
 		
 		
+	}
+	
+	public void judge(String input) {
+		for(int i=0; i<noteList.size(); i++) {
+			Note note = noteList.get(i);
+			if(input.equals(note.getNoteType())) {
+				note.judge();
+				break;
+			}
+		}
 	}
 
 }
