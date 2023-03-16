@@ -90,7 +90,7 @@ public class DynamicBeat extends JFrame {
 		addKeyListener(new KeyListener());
 		
 		introMusic.start();
-
+		
 		exitButton.setBounds(1245, 0, 30, 30);
 		exitButton.setBorderPainted(false);
 		exitButton.setContentAreaFilled(false);
@@ -354,7 +354,7 @@ public class DynamicBeat extends JFrame {
 		paintComponents(g);
 		try {
 			Thread.sleep(5);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

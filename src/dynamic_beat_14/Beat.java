@@ -1,10 +1,9 @@
 package dynamic_beat_14;
 
 public class Beat {
-	
+
 	private int time;
 	private String noteName;
-
 	public int getTime() {
 		return time;
 	}
@@ -24,5 +23,5 @@ public class Beat {
 	}
 	
 	
-
+	
 }

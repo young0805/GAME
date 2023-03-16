@@ -13,25 +13,25 @@ public class Note extends Thread {
 	
 	public Note(String noteType) {
 		if(noteType.equals("S")) {
-			x= 228;
+			x = 228;
 		}
 		else if(noteType.equals("D")) {
-			x =332;
+			x = 332;
 		}
 		else if(noteType.equals("F")) {
 			x = 436;
 		}
 		else if(noteType.equals("Space")) {
-			x =540;
+			x = 540;
 		}
 		else if(noteType.equals("J")) {
-			x =744;
+			x = 744;
 		}
 		else if(noteType.equals("K")) {
-			x =848;
+			x = 848;
 		}
 		else if(noteType.equals("L")) {
-			x =952;
+			x = 952;
 		}
 		this.noteType = noteType;
 	}
