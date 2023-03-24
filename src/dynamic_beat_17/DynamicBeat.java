@@ -41,21 +41,16 @@ public class DynamicBeat extends JFrame {
 	private ImageIcon backButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/backButtonEntered.png"));
 	private ImageIcon backButtonBasicImage = new ImageIcon(Main.class.getResource("../images/backButtonBasic.png"));
 	
-	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground.jpg"))
-			.getImage();
+	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground.jpg")).getImage();
+	
+	private Image S = new ImageIcon(Main.class.getResource("/images/rank_S.jpg")).getImage();
+	private Image A = new ImageIcon(Main.class.getResource("/images/rank_A.jpg")).getImage();
+	private Image B = new ImageIcon(Main.class.getResource("/images/rank_B.jpg")).getImage();
+	private Image C = new ImageIcon(Main.class.getResource("/images/rank_C.jpg")).getImage();
+	private Image F = new ImageIcon(Main.class.getResource("/images/rank_F.jpg")).getImage();
+	
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 
-	
-	private Image S = new ImageIcon(Main.class.getResource("/images/rank_S.jpg"))
-			.getImage();
-	private Image A = new ImageIcon(Main.class.getResource("/images/rank_A.jpg"))
-			.getImage();
-	private Image B = new ImageIcon(Main.class.getResource("/images/rank_B.jpg"))
-			.getImage();
-	private Image C = new ImageIcon(Main.class.getResource("/images/rank_C.jpg"))
-			.getImage();
-	private Image F = new ImageIcon(Main.class.getResource("/images/rank_F.jpg"))
-			.getImage();
 	
 	private JButton exitButton = new JButton(exitButtonBasicImage);
 	private JButton startButton = new JButton(startButtonBasicImage);
