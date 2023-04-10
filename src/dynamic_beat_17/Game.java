@@ -243,7 +243,8 @@ public class Game extends Thread {
 	
 	public void dropNotes(String titleName) {
 		Beat[] beats = null;
-		if(titleName.equals("Joakim Karud - Mighty Love") && difficulty.equals("Easy")) {
+		//if(titleName.equals("Joakim Karud - Mighty Love") && difficulty.equals("Easy")) {
+		if(titleName.equals("resultmusic") && difficulty.equals("Easy")) {
 			int startTime = 4460 - Main.REACH_TIME *1000;
 			int gap = 125;
 			beats = new Beat[]{
@@ -774,7 +775,7 @@ public class Game extends Thread {
 			}
 			if(!dropped) {
 				try {
-					Thread.sleep(5);
+					Thread.sleep(1);
 				}catch(Exception e){
 					e.printStackTrace();
 				}

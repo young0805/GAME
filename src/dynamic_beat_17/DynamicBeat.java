@@ -78,7 +78,11 @@ public class DynamicBeat extends JFrame {
 	
 	public DynamicBeat() {
 		trackList.add(new Track("Mighty Love Title Image.png", "Mighty Love Start Image.png",
-				"Mighty Love Game Image.jpg", "Mighty Love Selected.mp3", "Joakim Karud - Mighty Love.mp3", "Joakim Karud - Mighty Love"));
+				"Mighty Love Game Image.jpg", "Mighty Love Selected.mp3", "resultmusic.mp3", "resultmusic"));
+		/* 
+		 trackList.add(new Track("Mighty Love Title Image.png", "Mighty Love Start Image.png",
+		"Mighty Love Game Image.jpg", "Mighty Love Selected.mp3", "Joakim Karud - Mighty Love.mp3", "Joakim Karud - Mighty Love")); 
+		*/
 		trackList.add(new Track("Wild Flower Title Image.png", "Wild Flower Start Image.png",
 				"Wild Flower Game Image.jpg", "Wild Flower Selected.mp3", "Joakim Karud - Wild Flower.mp3", "Joakim Karud - Wild Flower"));
 		trackList.add(new Track("Energy Title Image.png", "Energy Start Image.png",
