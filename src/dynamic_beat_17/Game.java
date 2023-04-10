@@ -775,7 +775,7 @@ public class Game extends Thread {
 			}
 			if(!dropped) {
 				try {
-					Thread.sleep(1);
+					Thread.sleep(5);
 				}catch(Exception e){
 					e.printStackTrace();
 				}
