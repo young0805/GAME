@@ -224,6 +224,7 @@ public class Game extends Thread {
 	@Override
 	public void run() {
 		dropNotes(this.titleName);
+		// °á°ú
 		if(musicEnd) {
 			if(score <= 10000) rank = "F"; 
 			else if(score <= 50000) rank = "C"; 
@@ -761,6 +762,15 @@ public class Game extends Thread {
 				noteList.add(note);
 				i++;
 				dropped = true;
+			}
+			if(i==beats.length) {
+				try {
+					Thread.sleep(10000);
+					close();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 			if(!dropped) {
 				try {
